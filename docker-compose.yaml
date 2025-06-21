@@ -17,9 +17,9 @@ services:
       - POSTGRES_DB=rails_dev
 
   web:
-    build: .
+    # build: .
     
-    # image: koushikreddy24/rubyrailsapp:latest
+    image: srikant25/railsapp:latest
 
     volumes:
       - .:/app
