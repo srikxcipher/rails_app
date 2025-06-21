@@ -1,1 +1,1 @@
-# rails_app
+# Rails app with Postgresql
