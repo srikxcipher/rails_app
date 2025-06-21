@@ -1,0 +1,22 @@
+## Set permission - chmod +x k8s-scripts/*.sh
+
+## Order of execution
+
+./k8s-scripts/01-start-minikube.sh
+./k8s-scripts/02-create-namespace.sh
+./k8s-scripts/03-deploy-postgres.sh
+./k8s-scripts/04-deploy-rails-app.sh
+./k8s-scripts/05-enable-and-deploy-ingress.sh
+./k8s-scripts/06-status-check.sh
+
+./k8s-scripts/07-connect-postgres.sh
+
+
+## Access the application via NodePort 
+
+minikube service webapp-service -n rails-app
+
+
+## Clean-up
+
+./k8s-scripts/99-destroy-all.sh
