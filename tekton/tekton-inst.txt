@@ -1,0 +1,23 @@
+https://docs.google.com/document/d/15S3BIdAd057s88D310X2UjNnVGozZicrGNHB7UV3uPo/edit?tab=t.0
+
+Tekton:-
+
+Pipeline
+kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
+
+
+Triggers
+kubectl apply --filename \
+https://storage.googleapis.com/tekton-releases/triggers/latest/release.yaml
+kubectl apply --filename \
+https://storage.googleapis.com/tekton-releases/triggers/latest/interceptors.yaml
+
+Dashboard
+kubectl apply --filename https://storage.googleapis.com/tekton-releases/dashboard/latest/release.yaml
+
+Monitor the installation using the following command until all components show a Running status:
+kubectl get pods --namespace tekton-pipelines --watch
+
+
+Accessing the Dashboard 
+kubectl --namespace tekton-pipelines port-forward svc/tekton-dashboard 9097:9097

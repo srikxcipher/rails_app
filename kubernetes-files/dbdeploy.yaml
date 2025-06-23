@@ -23,7 +23,7 @@ spec:
         - name: POSTGRES_USER
           value: "srikant"
         - name: POSTGRES_PASSWORD
-          value: "20252025"
+          value: "**************"
         - name: POSTGRES_HOST
           value: "postgres"
         ports:

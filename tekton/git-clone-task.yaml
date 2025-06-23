@@ -10,8 +10,8 @@ spec:
   workspaces:
     - name: output
       description: The workspace where the repository will be cloned
-steps:
-  - name: clone
-    image: alpine/git
-    command: ["git"]
-    args: ["clone", "$(params.url)", "$(workspaces.output.path)"]
+  steps:
+    - name: clone
+      image: alpine/git
+      script: |
+        git clone $(params.url) $(workspaces.output.path)

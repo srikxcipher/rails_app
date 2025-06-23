@@ -1,0 +1,44 @@
+minikube status
+
+
+minikube start
+
+
+## Install
+
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+
+kubectl get all -n argocd
+
+## Wait for all to up and Running.
+
+
+kubectl get svc -n argocd
+
+
+kubectl edit svc argocd-server -n argocd -> set Type = NodePort for exposing ArgoCD Server
+
+
+minikube service list -n argocd
+
+
+minikube service argocd-server -n argocd
+
+
+minikube service list -n argocd
+
+kubectl get secret -n argocd
+
+kubectl edit secret argocd-initial-admin-secret -n argocd -> get the secret || copy it
+
+srikant@srikx-ubuntu:~/Docker-Tutorial/Projects/rails_app$ echo ************************** | base64 -d
+
+********************
+
+visit the https link - minikube service argocd-server -n argocd
+
+
+
+

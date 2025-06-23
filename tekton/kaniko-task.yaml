@@ -5,21 +5,35 @@ metadata:
 spec:
   params:
     - name: IMAGE
-      description: The name of the image to build and push
+      description: Image name including tag
       type: string
   workspaces:
     - name: source
-      description: The workspace containing the source code
-    - name: dockerconfig
-      description: The workspace containing the Docker config file for authentication
+      description: Source code workspace
+    - name: docker-credentials
+      description: Docker config secret workspace
   steps:
     - name: build-and-push
-      image: gcr.io/kaniko-project/executor:latest
-      script: |
-        #!/busybox/sh
-        /kaniko/executor \
-          --dockerfile=$(workspaces.source.path)/Dockerfile \
-          --context=$(workspaces.source.path) \
-          --destination=$(params.IMAGE) \
-          --docker-config=$(workspaces.dockerconfig.path)
-
+      image: gcr.io/kaniko-project/executor:v0.16.0
+      command:
+        - /kaniko/executor
+      args:
+        - --dockerfile=$(workspaces.source.path)/Dockerfile
+        - --context=$(workspaces.source.path)
+        - --destination=$(params.IMAGE)
+        - --force
+      env:
+        - name: DOCKER_CONFIG
+          value: /kaniko/.docker
+      volumeMounts:
+        - name: docker-config
+          mountPath: /kaniko/.docker
+          readOnly: true
+          
+  volumes:
+    - name: docker-config
+      secret:
+        secretName: docker-credentials
+        items:
+        - key: .dockerconfigjson
+          path: config.json
