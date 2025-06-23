@@ -14,13 +14,13 @@ This project showcases a full DevOps workflow for a Rails application with Postg
 
 ## Contents
 
-- [Quick Start](#-quick-start)
-- [Docker Setup](#-docker-setup)
-- [Kubernetes Deployment](#-kubernetes-deployment)
-- [ArgoCD GitOps](#-argocd-gitops)
-- [Tekton Pipelines](#-tekton-pipelines)
-- [Project Structure](#-project-structure)
-- [Documentation References](#-documentation-references)
+- [Quick Start](#quick-start)
+- [Docker Setup](#docker-setup)
+- [Kubernetes Deployment](#kubernetes-deployment)
+- [ArgoCD GitOps](#argocd-gitops)
+- [Tekton Pipelines](#tekton-pipelines)
+- [Project Structure](#project-structure)
+- [Documentation References](#documentation-references)
 
 ## Quick Start
 
